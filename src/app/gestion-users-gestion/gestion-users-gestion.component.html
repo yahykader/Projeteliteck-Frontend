@@ -1,0 +1,50 @@
+<mat-tab-group class="sp-table">
+  <mat-tab label="Gestions des utilisteurs">
+    <mat-card class="example-card sp-table">
+      <mat-card-header>
+        <mat-card-title>Gestion utilisateur</mat-card-title>
+        <mat-card-subtitle>Modifier et supprimer un utilisateur </mat-card-subtitle>
+      </mat-card-header>
+
+
+      <div  class="container" *ngIf="mode=='editUser'">
+        <form #f="ngForm" (ngSubmit)="onUpdateUser(f.value)">
+          <div class="form-group margh">
+            <div>
+              <label class="control-label"> Nom user </label>
+              <input  matInput type="text" name="userName" class="form-control" ngModel
+                                     [(ngModel)]="currentadminuser.userName" required="required">
+            </div>
+           <!-- <div>
+              <label class="control-label"> Password</label>
+              <input  matInput type="text" name="password" class="form-control" ngModel
+                                  [(ngModel)]="currentadminuser.password" required="required">
+            </div>-->
+          </div>
+          <button type="submit" class=" btn btn-success margh" [disabled]="!f.valid"> Valider Modification  </button>
+        </form>
+      </div>
+
+
+      <div  class="container" *ngIf="mode=='list'">
+        <div class="row col-md-6">
+          <table class="table table-striped" *ngIf="listUtilisateus">
+            <tr>
+              <td>Nom User </td> <td>Actived</td><td>Supprimer</td><td>Editer</td>
+            </tr>
+            <tr *ngFor="let u of listUtilisateus._embedded.appUsers">
+              <td>{{u.userName}}</td><td>{{u.actived}}</td>
+              <td>
+                <button mat-flat-button color="warn" (click)="onDeleteUser(u)">Delete</button>
+              </td>
+              <td>
+                <button mat-flat-button color="accent"  (click)="onEditUser(u)">Edit</button>
+              </td>
+            </tr>
+          </table></div>
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
+

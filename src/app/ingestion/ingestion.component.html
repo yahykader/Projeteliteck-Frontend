@@ -1,0 +1,92 @@
+<!--<mat-card class="spacerhaut panel-default">
+  <mat-card-title> Ingestion des données </mat-card-title>
+</mat-card>-->
+<mat-toolbar color="default" class="spacerhaut" >Saisies des données</mat-toolbar>
+<nav mat-tab-nav-bar class="spacerht">
+  <a mat-tab-link
+     *ngFor="let route of routes"
+     [routerLink]="route.url1" routerLinkActive ="active">{{route.linkName}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+
+
+<!--<div class="panel panel-default  spacerhaut">
+  <div class="panel-heading"> Ingestion Data  </div>
+  <div class="panel-body">
+
+  <div class="col-md-12 row">
+      <div class="col-md-6" >
+        <div class="panel panel-default">
+          <div class="panel-heading">upload file</div>
+          <div class="panel-body">
+
+            <div class="row">
+              <div class="col-md-8">
+            &lt;!&ndash;    <div *ngIf="fileUpload.status==='error'">
+                  <div [innerHTML]="fileUpload.message"></div>
+                </div>&ndash;&gt;
+               &lt;!&ndash; <div *ngIf="fileUpload.status==='progress'">
+                  <div class="progress" style="height: 20px;margin-bottom:20px;">
+                    <div class="progress-bar" role="progressbar" [style.width.%]="fileUpload.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{fileUpload.message}}%</div>
+                  </div>
+                </div>&ndash;&gt;
+                <form [formGroup] = "profileForm" (ngSubmit)="onSubmit()">
+                      &lt;!&ndash;<div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                      </div>&ndash;&gt;
+                      <div class="form-group">
+                        <input type="file" name="profile" (change)="onSelectedFile($event)" />
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success">Upload</button>
+                      </div>
+                </form>
+               &lt;!&ndash; <div *ngIf="fileUpload.status==='success'">
+                  <img [src]="fileUpload.filePath" height="200px" />
+                </div>&ndash;&gt;
+                <p>{{ error }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     <div class="col-md-6" >
+      <div class="panel panel-default">
+        <div class="panel-heading">upload view</div>
+        <div class="panel-body">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="col-md-12">
+      <div class="col-md-6" >
+        <div class="panel panel-default">
+          <div class="panel-heading">upload url</div>
+          <div class="panel-body">
+
+            <button type="submit" class="btn btn-success pull-right btn-sm"> Go </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" >
+        <div class="panel panel-default">
+          <div class="panel-heading">upload view</div>
+          <div class="panel-body">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>-->
+
+

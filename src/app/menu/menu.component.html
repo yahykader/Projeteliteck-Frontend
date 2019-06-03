@@ -1,0 +1,17 @@
+<!--
+<ul class="list-group haut">
+  <li class="list-group-item text-center cursor"> <a routerLink ="/ingestion" routerLinkActive="active">Ingestion Data </a></li>
+  <li class="list-group-item text-center cursor"> <a routerLink ="/analyse" routerLinkActive="active">Analysis Data</a> </li>
+  <li class="list-group-item text-center cursor"><a routerLink="/index" routerLinkActive="active"> Indexing Data</a> </li>
+  <li class="list-group-item text-center cursor"><a routerLink="/match" routerLinkActive="active"> Matching Data </a></li>
+  <li class="list-group-item text-center cursor"><a routerLink="/history" routerLinkActive="active">Account history </a></li>
+</ul>-->
+
+<mat-list class="haut" *ngIf="isFinale()">
+  <mat-divider></mat-divider>
+  <mat-list-item   *ngFor="let route of routes"  class="cursor "
+                        [routerLink]="route.url" routerLinkActive="active">
+          <mat-divider> </mat-divider> {{route.linkName}}</mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+

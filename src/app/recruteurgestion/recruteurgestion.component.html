@@ -1,0 +1,75 @@
+<mat-tab-group>
+  <mat-tab label="Gestions des Offres ">
+    <mat-card class="example-card sp-table">
+      <mat-card-header>
+        <mat-card-title>Gestions des Offres </mat-card-title>
+        <mat-card-subtitle>Modifier Supprimer une Offre  </mat-card-subtitle>
+      </mat-card-header>
+
+
+      <!-- pour modifier cv-->
+      <div  class="container" *ngIf="mode=='editOffre'">
+            <form  #f1="ngForm" (ngSubmit)="onUpdateOffre(f1.value)">
+              <div class="form-group margh">
+                <div class="margh">
+                  <label class="control-label"> Nom d'offre </label>
+                  <input  matInput type="text" name="nomOffre" class="form-control" ngModel  [(ngModel)]="currentoff.nomOffre" required="required">
+                </div>
+                <div class="margh">
+                  <label class="control-label"> Source </label>
+                  <input  matInput type="text" name="source" class="form-control" ngModel  [(ngModel)]="currentoff.source" required="required">
+                </div>
+                <div class="margh">
+                <table class="example-full-width" cellspacing="0" class="sp-table">
+                  <tr>
+                    <td>
+                      <label class="control-label marg"> Date de début d'offre  </label>
+                      <input matInput [matDatepicker]="picker1" placeholder="date début souhaite" name="dateDebut" ngModel  [(ngModel)]="currentoff.dateDebut" required="required">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </td>
+                    <td>
+                      <label class="control-label marg"> Date de fin d'offre </label>
+                      <input matInput [matDatepicker]="picker2" placeholder="date maximal d'acceptation" name="dateAcceptation"
+                                                                ngModel  [(ngModel)]="currentoff.dateAcceptation" required="required">
+                      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                      <mat-datepicker #picker2></mat-datepicker>
+                    </td>
+                  </tr>
+                  <tr >
+                  </tr>
+                </table>
+                </div>
+                <div class="margh">
+                  <label class="control-label">Contenu d'offre d'emploie :</label>
+                  <textarea matInput class="form-control" rows="20" name="contenuOffre" required="required" ngModel  [(ngModel)]="currentoff.contenuOffre"></textarea>
+                </div>
+              </div>
+              <button type="submit" class=" btn btn-success" [disabled]="!f1.valid"> Valider Modification </button>
+
+            </form>
+      </div>
+      <div  class="container" *ngIf="mode=='list'">
+        <div class="row col-md-4">
+          <table class="table table-striped" *ngIf="listOffres">
+            <tr>
+              <td>Nom Offre</td><!--<td>Source</td>--><!--<td>Date début</td>-->
+              <td>Date d'acceptation</td><td>Contenu Offre</td>
+            </tr>
+            <tr *ngFor="let off of listOffres._embedded.offres">
+              <td>{{off.nomOffre}}</td><!--<td>{{off.source}}</td-->>
+             <!-- <td>{{off.dateDebut}}</td>--><td>{{off.dateAcceptation}}</td>
+              <td>{{off.contenuOffre}}</td>
+              <td>
+                <button mat-flat-button color="warn" (click)="onDeleteOffre(off)">Delete</button>
+              </td>
+              <td>
+                <button mat-flat-button color="accent"  (click)="onEditOffre(off)">Edit</button>
+              </td>
+            </tr>
+          </table></div>
+      </div>
+
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

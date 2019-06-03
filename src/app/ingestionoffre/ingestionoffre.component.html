@@ -1,0 +1,80 @@
+<mat-tab-group>
+<mat-tab label="Gestions des Cvs ">
+  <mat-card class="example-card sp-table">
+    <mat-card-header>
+      <mat-card-title>Gestions des Cvs </mat-card-title>
+      <mat-card-subtitle>Modifier Supprimer un CV  </mat-card-subtitle>
+    </mat-card-header>
+
+
+               <!-- pour modifier cv-->
+
+          <div *ngIf="mode=='editCv'" class="col-md-6">
+            <form #f="ngForm" (ngSubmit)="onUpdateCv(f.value)">
+              <div class="form-group marg">
+                <div class="margh">
+                  <label class="control-label"> Nom Cv </label>
+                  <input  matInput type="text" name="nomCv" class="form-control" ngModel  [(ngModel)]="currentcv.nomCv">
+                </div>
+                <div class="margh">
+                  <table class="example-full-width" cellspacing="0" class="sp-table">
+                    <tr>
+                      <td class="marg">
+                        <label class="control-label marg"> Disponibilité </label>
+                        <input matInput [matDatepicker]="picker" placeholder="disponibilite" name="disponibilite" ngModel  [(ngModel)]="currentcv.disponibilite">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </td>
+                      <td class="margleft">
+                        <label class="control-label marg"> Mobilite </label>
+                        <input matInput placeholder="le région" type="text" name="mobilite" ngModel  [(ngModel)]="currentcv.mobilite" required="required">
+                      </td>
+                      <!--<td>
+                        <div class="form-group">
+                          <input type="file" name="nomfile" (change)="onSelectedFile($event)" />
+                        </div>
+                      </td>-->
+                    </tr>
+                    <tr >
+
+                    </tr>
+                  </table>
+                </div>
+                <div class="margh">
+                  <label class="control-label">Contenu Cv :</label>
+                  <textarea matInput class="form-control" rows="20" name="contenu" ngModel  [(ngModel)]="currentcv.contenu" required="required"></textarea>
+                </div>
+              </div>
+              <button type="submit" class=" btn btn-success" [disabled]="!f.valid"> Valider Modification </button>
+
+            </form>
+          </div>
+
+          <div  class="container" *ngIf="mode=='list'">
+            <div class="row col-md-4">
+              <table class="table table-hover" *ngIf="listCvs">
+                <thead>
+                <tr>
+                  <td>Nom CV</td><td>Disponibilite</td>
+                  <td>Mobilite</td><td>Contenu</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let c of listCvs._embedded.cvs">
+
+                  <td>{{c.nomCv}}</td><td>{{c.disponibilite}}</td>
+                  <td>{{c.mobilite}}</td><td>{{c.contenu}}</td>
+                  <td>
+                    <button mat-flat-button color="warn" (click)="onDeleteCv(c)">Delete</button>
+                  </td>
+                  <td>
+                    <button mat-flat-button color="accent"  (click)="onEditCV(c)">Edit</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table></div>
+          </div>
+
+  </mat-card>
+</mat-tab>
+</mat-tab-group>

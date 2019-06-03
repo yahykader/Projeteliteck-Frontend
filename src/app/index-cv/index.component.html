@@ -1,0 +1,12 @@
+<!--<mat-card class="spacerhaut " color="default">
+  <mat-card-title> Indexation des données </mat-card-title>
+</mat-card>-->
+<mat-toolbar color="default" class="spacerhaut" >Classification des données par CV </mat-toolbar>
+<nav mat-tab-nav-bar class="spacerht">
+  <a mat-tab-link
+     *ngFor="let route of routes"
+     [routerLink]="route.url1" routerLinkActive ="active">{{route.linkName}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet>

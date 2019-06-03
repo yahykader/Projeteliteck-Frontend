@@ -1,0 +1,78 @@
+
+<!--    <mat-card>
+      <mat-card-title class="spacerhaut"> </mat-card-title>
+    </mat-card>-->
+<!--
+
+    <mat-toolbar color="default" class="spacerhaut text-center" >Authentification</mat-toolbar>
+    <div class="container col-md-8  col-md-offset-3 col-xs-12 spacer-card espace-bottom">
+      <div class="panel panel-default spacerhaut">
+-->
+
+      <!--  <div class="container spacer">
+				    <span class="text-danger" >
+				              Incorrect username  or password ?
+				    </span>
+          <span class="text-danger" >
+				             Vous avez été déconnecté
+				    </span>
+  </div>&ndash;&gt;
+        <div class="panel-body margh">
+
+          <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+            <div class="form-group">
+              <label class="control-label"> Login :</label>
+              <input class="form-control" placeholder="Login" type="text" name="userName" ngModel [(ngModel)]="userName" required="required" />
+            </div>
+            <div class="form-group margh">
+              <label class="control-label"> Password :</label>
+              <input class="form-control" placeholder="Enter your password" [(ngModel)]="password"
+                     type="password" name="password" ngModel="" required="required"/>
+            </div>
+            <div class="margh">
+              <button type="submit" class="btn btn-success center-block" [disabled]="!f.valid">Authentifier</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br><br>
+    </div>-->
+
+
+
+
+
+<div id="login-page" class="margin-bas">
+  <div class="container">
+    <form class="form-login card" #f="ngForm" (ngSubmit)="onLogin(f.value)">
+      <h2 class="form-login-heading">Connectez Vous Maintenant</h2>
+      <div class="login-wrap">
+        <input type="text" class="form-control" placeholder="User ID" autofocus name="userName"
+                                          ngModel [(ngModel)]="userName" required="required" />
+        <br>
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password"
+                                                name="password" ngModel="" required="required"/>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Souviens-toi de moi
+          <span class="pull-right">
+            <a data-toggle="modal" href="login.html#myModal"> Mot de passe oublié?</a>
+            </span>
+        </label>
+        <button class="btn btn-theme btn-block"  type="submit" [disabled]="!f.valid" ><i class="fa fa-lock" aria-hidden="true"></i>
+          SE CONNECTER</button>
+        <hr>
+        <div class="login-social-link centered">
+          <p>ou vous pouvez vous connecter via votre réseau social</p>
+          <button class="btn btn-facebook" type="submit"> <i class="fab fa-fw fa-facebook-f"></i>Facebook</button>
+          <button class="btn btn-twitter" type="submit"><i class="fab fa-fw fa-twitter"></i> Twitter</button>
+        </div>
+        <div class="registration">
+          Vous n'avez pas encore de compte?<br/>
+          <a class="" routerLink="/register">
+            Créer un compte
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

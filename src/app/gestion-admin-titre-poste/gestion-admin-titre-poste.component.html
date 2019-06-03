@@ -1,0 +1,46 @@
+<mat-tab-group class="sp-table">
+  <mat-tab label="Titre du Poste">
+    <mat-card class="example-card sp-table">
+      <mat-card-header>
+        <mat-card-title>Gestion du Poste</mat-card-title>
+        <mat-card-subtitle>Modifier et supprimer un poste </mat-card-subtitle>
+      </mat-card-header>
+
+
+        <div  class="container" *ngIf="mode=='editTitre'">
+          <form #f="ngForm" (ngSubmit)="onUpdateTitre(f.value)">
+            <div class="form-group margh">
+              <div>
+                <label class="control-label"> Nom Poste </label>
+                <input  type="text" name="nomPoste" class="form-control"  ngModel  [(ngModel)]="currenttitre.nomPoste" required="required">
+              </div>
+            </div>
+
+            <button type="submit" class=" btn btn-success" [disabled]="!f.valid"> Valider Modification </button>
+          </form>
+        </div>
+
+
+        <div  class="container" *ngIf="mode=='list'">
+          <div class="row col-md-6">
+            <table class="table table-striped" *ngIf="listTitres">
+              <tr>
+                <td>Nom Offre</td><td>Supprimer</td><td>Editer</td>
+              </tr>
+              <tr *ngFor="let titre of listTitres._embedded.titrePostes">
+                <td>{{titre.nomPoste}}</td>
+                <td>
+                  <button mat-flat-button color="warn" (click)="onDeleteTitre(titre)">Delete</button>
+                </td>
+                <td>
+                  <button mat-flat-button color="accent"  (click)="onEditTitre(titre)">Edit</button>
+                </td>
+              </tr>
+            </table></div>
+        </div>
+
+
+
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,61 @@
+<mat-tab-group class="sp-table">
+  <mat-tab label="Gestion du Localisation">
+    <mat-card class="example-card sp-table">
+      <mat-card-header>
+        <mat-card-title>Gestion du Localisation</mat-card-title>
+        <mat-card-subtitle>Modifier et supprimer une Localisation </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+      <div  class="container" *ngIf="mode=='editLocalisation'">
+        <form #f="ngForm" (ngSubmit)="onUpdateLocalisation(f.value)">
+          <div class="form-group margh">
+            <div>
+              <label class="control-label"> Nom Poste </label>
+              <input  type="text" name="nomLangue" class="form-control"  ngModel  [(ngModel)]="currentlocalisation.nomLangue" required="required">
+            </div>
+          </div>
+
+          <button type="submit" class=" btn btn-success" [disabled]="!f.valid"> Valider Modification </button>
+        </form>
+      </div>
+
+
+      <div  class="container" *ngIf="mode=='list'">
+        <div class="row col-md-8">
+          <table class="table table-striped" *ngIf="listLocalisations">
+            <tr>
+              <td>Nom localisation</td><td>Supprimer</td><td>Editer</td>
+            </tr>
+            <tr *ngFor="let locali of listLocalisations._embedded.langues">
+              <td>{{locali.nomLangue}}</td>
+              <td>
+                <button mat-flat-button color="warn" (click)="onDeleteLocalisation(locali)">Delete</button>
+              </td>
+              <td>
+                <button mat-flat-button color="accent"  (click)="onEditLocalisation(locali)">Edit</button>
+              </td>
+            </tr>
+          </table></div>
+      </div>
+
+      <table mat-table [dataSource]="data" class="mat-elevation-z8">
+        <!--<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+        </ng-container>-->
+        <ng-container matColumnDef="nomLangue">
+          <th mat-header-cell *matHeaderCellDef> nomLangue</th>
+          <td mat-cell *matCellDef="let element"> {{element.nomLangue}} </td>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+      </table>
+
+
+</mat-card-content>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+

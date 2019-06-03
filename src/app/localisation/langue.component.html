@@ -1,0 +1,55 @@
+<mat-tab-group>
+
+  <mat-tab label="Localisation">
+    <mat-card class="example-card sp-table">
+      <mat-card-header>
+        <mat-card-title>localisation</mat-card-title>
+        <mat-card-subtitle>Information sur votre localisation </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form #f="ngForm" (ngSubmit)="onSaveLangue(f.value)">
+          <div class="form-group margh">
+            <div>
+              <label class="control-label"> Localisation Géographique </label>
+              <input  matInput type="text" name="nomLangue" class="form-control" ngModel  [(ngModel)]="nomLangue">
+            </div>
+          </div>
+          <!--<div class="margh">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Nom Offre </mat-label>
+                    <mat-select  name="offre" [(ngModel)]="selectedValue" (ngModelChange)="onOffreSelected($event)" required="required">
+                      <mat-option *ngFor="let off of listOffres" [value]="off">
+                        {{off.nomOffre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  {{selectedValue}}
+                </td>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Nom Cv </mat-label>
+                    <mat-select  name="cv"  [(ngModel)]="selectedValue1" (ngModelChange)="onCvSelected($event)" required="required">
+                      <mat-option *ngFor="let c of listCvs" [value]="c">
+                        {{c.nomCv}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  {{selectedValue1}}
+                </td>
+              </tr>
+            </table>
+          </div>-->
+          <button type="submit" class=" btn btn-success margh" [disabled]="!f.valid"> Valider  </button>
+
+        </form>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  </mat-tab>
+
+</mat-tab-group>

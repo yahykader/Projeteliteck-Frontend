@@ -1,0 +1,45 @@
+
+.image-elitech{
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.imagef{
+  width: 10%;
+  height: 10%;
+}
+
+.footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #2C3E50;
+  color: #fff;
+}
+
+.copyright {
+  background-color: #1a252f;
+}
+
+a {
+  color: #18BC9C;
+}
+
+a:focus, a:hover, a:active {
+  color: #128f76;
+}
+
+.btn {
+  border-width: 2px;
+}
+.btn-social {
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+h4{
+  font-weight: 700;
+  font-family: 'Montserrat';
+}

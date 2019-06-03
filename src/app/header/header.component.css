@@ -1,0 +1,20 @@
+
+
+.cursor{
+  cursor: pointer;
+}
+
+.example-spacer{
+  flex: 1 1 auto;
+}
+.example-icon{
+  padding: 0 14px ;
+  cursor: pointer;
+}
+.example-btn{
+  margin-right: 220px;
+}
+.examp{
+  margin-right: 100px;
+  margin-left: 250px;
+}
